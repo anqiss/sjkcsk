@@ -37,14 +37,14 @@
         }  
     </style>  
     <script type="text/javascript">  
-        var arr = [];//±£´æËùÓĞµÄXY×ø±ê£¬Ö»ÎªÑéÖ¤¡£Êµ¼Ê³ÌĞòÖĞ¿ÉÉ¾³ı¡£  
+        var arr = [];//ä¿å­˜æ‰€æœ‰çš„XYåæ ‡ï¼Œåªä¸ºéªŒè¯ã€‚å®é™…ç¨‹åºä¸­å¯åˆ é™¤ã€‚  
         var r = 4;  
-        var radian;//»¡¶È  
+        var radian;//å¼§åº¦  
         var i;  
-        var radianDecrement;//»¡¶ÈÔöÁ¿  
-        var time = 10;//Ã¿¸öµãÖ®¼äµÄÊ±¼ä¼ä¸ô  
+        var radianDecrement;//å¼§åº¦å¢é‡  
+        var time = 10;//æ¯ä¸ªç‚¹ä¹‹é—´çš„æ—¶é—´é—´éš”  
         var intervalId;  
-        var num = 360;//·Ö¸îÎª 360 ¸öµã  
+        var num = 360;//åˆ†å‰²ä¸º 360 ä¸ªç‚¹  
         var startRadian = Math.PI;  
         var ctx;  
         window.onload = function () {  
@@ -52,7 +52,7 @@
         }  
         function startAnimation() {  
             ctx = document.getElementById("myCanvas").getContext("2d");  
-            //ÈÃ»­²¼³ÅÂúÕû¸öÆÁÄ»£¬-20ÊÇ¹ö¶¯ÌõµÄÎ»ÖÃ£¬ĞèÁô³ö¡£Èç¹ö¶¯Ìõ³öÏÖÔò»á¼·Ñ¹»­²¼¡£  
+            //è®©ç”»å¸ƒæ’‘æ»¡æ•´ä¸ªå±å¹•ï¼Œ-20æ˜¯æ»šåŠ¨æ¡çš„ä½ç½®ï¼Œéœ€ç•™å‡ºã€‚å¦‚æ»šåŠ¨æ¡å‡ºç°åˆ™ä¼šæŒ¤å‹ç”»å¸ƒã€‚  
             WINDOW_HEIGHT=document.documentElement.clientHeight-20;  
             WINDOW_WIDTH=document.documentElement.clientWidth-20;  
             ctx.width = WINDOW_WIDTH;  
@@ -63,30 +63,30 @@
         function drawHeart() {  
    
             ctx.strokeStyle = "red";  
-            ctx.lineWidth = 1;//ÉèÖÃÏßµÄ¿í¶È  
-            radian = startRadian;//»¡¶ÈÉèÎª³õÊ¼»¡¶È  
+            ctx.lineWidth = 1;//è®¾ç½®çº¿çš„å®½åº¦  
+            radian = startRadian;//å¼§åº¦è®¾ä¸ºåˆå§‹å¼§åº¦  
             radianDecrement = Math.PI / num * 2;  
-            ctx.moveTo(getX(radian), getY(radian));//ÒÆ¶¯µ½³õÊ¼µã  
+            ctx.moveTo(getX(radian), getY(radian));//ç§»åŠ¨åˆ°åˆå§‹ç‚¹  
             i = 0;  
             intervalId = setInterval("printHeart()", time);  
         }  
         //x = 16 sin^3 t, y = (13 cos t - 5 cos 2t - 2 cos 3t - cos 4t)  
         function printHeart() {  
             radian += radianDecrement;  
-            ctx.lineTo(getX(radian), getY(radian));//ÔÚ¾ÉµãºÍĞÂµãÖ®¼äÁ¬Ïß  
+            ctx.lineTo(getX(radian), getY(radian));//åœ¨æ—§ç‚¹å’Œæ–°ç‚¹ä¹‹é—´è¿çº¿  
             //arr.push("X:" + getX(radian) + "Y:" + getY(radian) + "");  
             i++;  
-            ctx.stroke();//»­Ïß  
+            ctx.stroke();//ç”»çº¿  
             if (i >= num) {  
                 clearInterval(intervalId);  
-                //document.getElementById("bs").innerHTML = arr.join("");//´òÓ¡ËùÓĞµÄXY×ø±êµã¡£  
+                //document.getElementById("bs").innerHTML = arr.join("");//æ‰“å°æ‰€æœ‰çš„XYåæ ‡ç‚¹ã€‚  
             }  
         }  
-        function getX(t) {//ÓÉ»¡¶ÈµÃµ½ X ×ø±ê  
+        function getX(t) {//ç”±å¼§åº¦å¾—åˆ° X åæ ‡  
             return 100 + r * (16 * Math.pow(Math.sin(t), 3));  
         }  
    
-        function getY(t) {//ÓÉ»¡¶ÈµÃµ½ Y ×ø±ê  
+        function getY(t) {//ç”±å¼§åº¦å¾—åˆ° Y åæ ‡  
             return 50 - r * (13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));  
         }  
     </script>  
@@ -95,7 +95,7 @@
    
 <body>  
 	<canvas id="myCanvas" width="300" height="300" style="border:1px solid #d3d3d3;">
-ÄúµÄä¯ÀÀÆ÷²»Ö§³Ö HTML5 canvas ±êÇ©¡£</canvas>
+æ‚¨çš„æµè§ˆå™¨ä¸æ”¯æŒ HTML5 canvas æ ‡ç­¾ã€‚</canvas>
 	
 	<script>
 
@@ -113,6 +113,7 @@ ctx.strokeText("     hello",60,50);
     <div id="bs">  
     </div>  
    
+	
 </body>  
    
 </html>
